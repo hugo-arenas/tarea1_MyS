@@ -4,10 +4,12 @@ function [x,F] = mycdf(distname,a,b,mean,sigma)
     F = zeros(1,1000);
     if distname == "Normal" || distname == "normal" || distname == "N" || distname == "n"
         distname = "Normal";
-        f = @(x) (exp((-((x - mean)/sigma).^2)/2))/(sigma*(2*pi)^(1/2));
         for i=1:1000
             x(i)= random('Normal',a,b);
-            x=sort(x);
+        end
+        x=sort(x);
+        f = @(x) (exp((-((x - mean)/sigma).^2)/2))/(sigma*(2*pi)^(1/2));
+        for i=1:1000
             F(i)=integral(f, - inf , x(i));
         end
     elseif  (distname == "Uniform" || distname == "uniform" || distname == "U" || distname == "u" || distname == "uniforme" || distname == "Uniforme")
@@ -16,14 +18,16 @@ function [x,F] = mycdf(distname,a,b,mean,sigma)
         for i=1:1000
             x(i)= random('uniform',a,b);
             x=sort(x);
-            F(i)=integral(f, a, x(i));
+            F(i)=(x(i)-a)/(b-a);
         end
     else
         distname = "Normal";
-        f = @(x) (exp((-((x - mean)/sigma).^2)/2))/(sigma*(2*pi)^(1/2));
         for i=1:1000
             x(i)= random('Normal',a,b);
-            x=sort(x);
+        end
+        x=sort(x);
+        f = @(x) (exp((-((x - mean)/sigma).^2)/2))/(sigma*(2*pi)^(1/2));
+        for i=1:1000
             F(i)=integral(f, - inf , x(i));
         end
 end
