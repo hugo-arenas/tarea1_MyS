@@ -1,0 +1,8 @@
+function [f,c,d] = sumuniforme(n, a, b)
+f=zeros(1,n);
+c=0;
+d=0;
+for i=1:n
+    f(i)=i/n;
+    
+end

@@ -17,7 +17,9 @@ function [x,F] = mycdf(distname,a,b,mean,sigma)
         f = @(x) 1/(b - a);
         for i=1:1000
             x(i)= random('uniform',a,b);
-            x=sort(x);
+        end
+        x=sort(x);
+        for i=1:1000
             F(i)=(x(i)-a)/(b-a);
         end
     else
