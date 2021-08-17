@@ -1,3 +1,9 @@
+%{
+Integrantes:
+    Hugo Arenas
+    José Ibaceta
+    Victor Huanqui
+%}
 function [x,F] = mycdf(distname,a,b,mean,sigma)
     f = 0;
     x = zeros(1,1000);
@@ -33,30 +39,4 @@ function [x,F] = mycdf(distname,a,b,mean,sigma)
             F(i)=integral(f, - inf , x(i));
         end
 end
-    
-
-
-%f_derivada = polyder(funcion);
-
-%f_x0 = polyval(funcion, x0);
-
-%f_derivada_x0 = polyval(f_derivada, x0);
-
-%i = 0;
-
-%while abs(f_x0) > error && i < iMax
-%    x0_n = x0 - f_x0/f_derivada_x0;
-%    f_x0 = polyval(funcion, x0_n);
-%    f_derivada_x0 = polyval(f_derivada, x0_n);
-%    x0 = x0_n;
-%    i = i + 1;
-%end
-
-%fprintf('\n--- Algoritmo Newton Rahpson Iterativo ---\nIteraciones = %d\nError = %d\n', i, abs(f_x0));
-%raiz = x0;
-
-
-    
-
-    
 
